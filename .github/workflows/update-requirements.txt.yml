@@ -1,0 +1,72 @@
+name: Update requirements.txt
+
+# runs every day at midnight UTC
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-requirements:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repo
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      # Upload the original requirements.txt
+      - name: Upload old requirements.txt
+        uses: actions/upload-artifact@v4
+        with:
+          name: old-requirements
+          path: requirements.txt
+
+      # Set up Python & venv
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Create virtual environment
+        run: python -m venv .venv
+
+      - name: Activate venv and upgrade pip
+        run: |
+          source .venv/bin/activate
+          pip install --upgrade pip
+
+      # Upgrade your dependencies
+      - name: Upgrade dependencies
+        run: |
+          source .venv/bin/activate
+          pip install --upgrade discord.py python-dotenv APScheduler boto3 aiohttp pytz
+
+      # Rewrite requirements.txt with just those packages
+      - name: Write packages to requirements.txt
+        run: |
+          source .venv/bin/activate
+          pip freeze \
+            | grep -E '^(discord\.py|python-dotenv|APScheduler|boto3|aiohttp|pytz)==' \
+            > requirements.txt
+
+      # Upload the updated requirements.txt
+      - name: Upload updated requirements.txt
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-requirements
+          path: requirements.txt
+
+      # Commit & push if anything changed
+      - name: Commit & push updated requirements
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add requirements.txt
+          if git diff --cached --quiet; then
+            echo "No changes to requirements.txt"
+          else
+            git commit -m "chore: keep requirements.txt up to date"
+            git push
+          fi
