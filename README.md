@@ -6,6 +6,7 @@
 
 # BackupBot
 [![License Button]][License Link]
+[![Discord](https://img.shields.io/discord/1350036500921716756.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/Xnh5ckQVyV)
 
 BackupBot is a Discord bot that automatically backs up your server’s data, roles, emojis, stickers, and a lot more
 
