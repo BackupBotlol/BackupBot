@@ -104,7 +104,7 @@ sudo apt install python3 python3-pip
 
 | Command | Description |
 |---------|-------------|
-| `/help [language]` | Show help in English or Arabic |
+| `/help [language]` | Show the help message in English or Arabic |
 | `/addserver <log_channel> [timezone] [frequency]` | Add this server to the backup list, set the log channel, timezone, and frequency |
 | `/changetimezone <timezone>` | Change the server’s backup timezone (example, `UTC`) |
 | `/changefrequency <frequency>` | Change backup time (`hourly`, `daily`, `weekly`, `monthly`, `yearly`) |
