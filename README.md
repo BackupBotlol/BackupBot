@@ -1,12 +1,14 @@
-[License Button]: https://img.shields.io/badge/License-Apache_2.0-green
+[License Button]: https://img.shields.io/badge/License-Apache_2.0-green?logo=apache&logoColor=white
 [License Link]: https://github.com/BackupBotlol/BackupBot/blob/main/LICENSE 'Apache 2.0 License.'
+[Discord Button]: https://img.shields.io/discord/1350036500921716756.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2
+[Discord Link]: https://discord.gg/Xnh5ckQVyV 'Our discord server.'
 
 <img align="left" width="90" height="100" src="icon/BackupBot.png">
 
 
 # BackupBot
 [![License Button]][License Link]
-[![Discord](https://img.shields.io/discord/1350036500921716756.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/Xnh5ckQVyV)
+[![Discord Button]][Discord Link]
 
 BackupBot is a Discord bot that automatically backs up your server’s data, roles, emojis, stickers, and a lot more
 
