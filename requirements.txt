@@ -1,6 +1,6 @@
 aiohttp==3.12.13
 APScheduler==3.11.0
-boto3==1.39.3
+boto3==1.39.4
 discord.py==2.5.2
 python-dotenv==1.1.1
 pytz==2025.2
