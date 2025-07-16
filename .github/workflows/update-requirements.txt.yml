@@ -67,6 +67,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to requirements.txt"
           else
-            git commit -m "keep requirements.txt up to date"
+            git commit -m "Keep requirements.txt up to date"
             git push
           fi
